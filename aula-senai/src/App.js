@@ -1,9 +1,17 @@
 import { useState } from 'react';
 import './App.css';
+import UserInput from './Components/UserInput';
+import UserList from './Components/UserList';
 
 function App() {
-  const[atividade, setAtividade] = useState('');
   const[atividades, setAtividades] = useState(['Teste',]);
+    if(atividades.includes(atividade)){
+      alert('Atividade já existe!');
+      return;
+    }
+    setAtividades([...atividades, atividade]);
+    setAtividade('');
+    }
 
 const adicionarAtividade= () =>{
   if(atividades.includes(atividade)){
@@ -33,6 +41,8 @@ return(
     </ol>
   </div>
 );
-}
+
 
 export default App;
+//const[atividades, setAtividades] = useState(['Teste',]);
+//  
